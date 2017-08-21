@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html th:with="category = '신규 매출 등록'">
+<head th:replace="fragments/header :: head(~{::title}, ${category})">
+<title th:text="${category}"></title>
+</head>
+<body ng-app="app" ng-controller="GetCtrl" ng-init="getList()">
+	<div th:replace="fragments/header :: navbar" />
+	<div class="container">
+		<div class="row">
+			<p th:if="${salesInsertError}" class="error">입력 에러</p>
+			<form th:action="@{/sales/insert}" method="post"> <!-- action 부모 교체 -->
+				<table class="table table-striped">
+					<tr>
+						<th style="text-align:center">매출일</th>
+						<th style="text-align:center">서점명</th>
+						<th style="text-align:center">책 제목</th>
+						<th style="text-align:center">판매부수</th>
+						<th style="text-align:center">단가</th>
+						<th style="text-align:center">판매액</th>
+					</tr>
+					<tr>
+						<td>
+							<input type="text" name="sDate" value="{{sDate |  date : 'yyyy-MM-dd'}}" class="form-control" />
+							<input type="hidden" ng-model="sDate"  />
+							
+						</td>
+						<td>
+							<div class='container-fluid'>
+								<input type="text" ng-model="selectedBookStore" uib-typeahead="option as option.name for option in bookStoreList | filter:$viewValue | limitTo:8" ng-keyup="calSPrice()" ng-click="calSPrice()" class="form-control" onfocus="this.select()" autofocus/>
+							</div>
+							<!-- 사업자등록번호가 같지만 구분이 달라서 이름을 다르게 입력하여 구분하는 서점을 위해 이름도 같이 받기 위해 hidden필드 마련 -->
+							<input type="hidden" name="bsnum" value="{{selectedBookStore.bsnum}}"> 
+							<input type="hidden" name="name" value="{{selectedBookStore.name}}"> 
+						</td>
+						<td>
+							<div class='container-fluid'>
+								<input type="text" ng-model="selectedBook" uib-typeahead="option as option.title for option in bookList | filter:$viewValue | limitTo:8" ng-keyup="calSPrice()" class="form-control" onfocus="this.select()" />
+							</div>
+							<input type="hidden" name="ISBN" value="{{selectedBook.ISBN}}"> 
+						</td>
+						<td>
+							<input type="text" name="amount" ng-model="amount" onfocus="this.select()" class="form-control" />
+						</td>
+						<td>
+							<input type="text" name="sPrice" ng-model="sPrice" class="form-control" />
+						</td>
+						<td>
+							<input type="text" name="totalPrice" value="{{amount * sPrice}}" class="form-control" />
+						</td>
+					</tr>
+				</table>
+				<input type="submit" class="btn btn-default" value="입력" />
+			</form>
+		</div>
+	</div>
+<script type="text/javascript" src="../appForSalesInsert.js"
+        th:src="@{/appForSalesInsert.js}"></script>
+<script type="text/javascript" src="../directives.js"
+        th:src="@{/directives.js}"></script>
+</body>
+</html>

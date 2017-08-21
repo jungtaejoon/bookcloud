@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html th:with="category = '책구름'">
+<head th:replace="bookcloudHome/fragments/header :: head(~{::title}, ${category})">
+	<title th:text="${category}"></title>
+</head>
+
+<body>
+	<div class="loader-wrapper">
+		<div class="loaders">
+			<div class="loader-logo-pulse">
+				<img src="images/책구름 로고.png" alt="책구름"> 
+			</div>
+			<div class="loader-1">
+			</div>
+		</div>
+	</div>
+	
+    <div class="wrapper">
+        <!-- Header Start -->
+        <header th:replace="bookcloudHome/fragments/header :: header()" />
+        <!-- Header End -->
+        
+        
+        <!-- Hero Start -->
+        <section id="hero">
+            <div class="fs-hero hero-img fixed-bg" style="background-image:url(images/homedoor.jpg)">
+                <div class="hero-caption center-left text-white">
+					<h2 class="font-weight-light mrg-btm-20">책구름</h2>
+					<p>구름처럼 자유로운 책 세상</p>
+					<div class="mrg-top-30">
+						<!--  <a class="btn btn-md btn-white"> Start Now</a>  -->
+					</div>
+				</div>
+            </div><!-- /hero-img -->
+        </section>
+        <!-- Hero End -->
+        
+        
+        <!-- About Start -->
+        <section th:replace="bookcloudHome/fragments/aboutstart :: aboutstart()" />
+        <!-- About End -->
+        
+        
+        <!-- Features Start
+        <section th:replace="bookcloudHome/fragments/features :: features()" />
+        <!-- Features End -->
+        
+        
+        <!-- Portfolio Start 
+        <section th:replace="bookcloudHome/fragments/portfolio :: portfolio()" />
+        <!-- Portfolio End -->        
+        
+        
+        <!-- Testimonial Start -->
+        <section th:replace="bookcloudHome/fragments/testimonial :: testimonial()" />
+        <!-- Testimonial End -->
+        
+        
+        <!-- Blog Start -->
+        <section th:replace="bookcloudHome/fragments/blog :: blog()" />
+        <!-- Blog End -->
+        
+    </div><!-- wrapper -->
+    
+    <!-- Footer Start -->
+    <section th:replace="bookcloudHome/fragments/footer :: footer()" />
+    <!-- Footer End -->
+    
+</body>
+
+</html>

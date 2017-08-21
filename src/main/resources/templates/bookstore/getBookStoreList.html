@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html th:with="category = '서점 리스트'">
+<head th:replace="fragments/header :: head(~{::title}, ${category})">
+<title th:text="${category}"></title>
+</head>
+<body>
+	<div th:replace="fragments/header :: navbar" />
+	<div class="col-lg-10 col-lg-offset-1">
+		<table class='table table-striped'>
+			<tr>
+				<th style="text-align:center">서점명</th>
+				<th style="text-align:center">사업자번호</th>
+				<th style="text-align:center">공급율</th>
+				<th style="text-align:center">대표자</th>
+				<th style="text-align:center">주소</th>
+				<th style="text-align:center">이메일</th>
+				<th style="text-align:center">구분</th>
+			</tr>
+			<tr th:each="bookStore : ${list}">
+				<td style="text-align:center" th:text="${bookStore.name}"></td>
+				<td style="text-align:center" th:text="${bookStore.bsnum}"></td>
+				<td style="text-align:center" th:text="${bookStore.per}"></td>
+				<td style="text-align:center" th:text="${bookStore.ceo}"></td>
+				<td style="text-align:center" th:text="${bookStore.address}"></td>
+				<td style="text-align:center" th:text="${bookStore.email}"></td>
+				<td style="text-align:center" th:text="${bookStore.yc}"></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html th:with="category = '출판사 정보'">
+<head th:replace="fragments/header :: head(~{::title}, ${category})">
+<title th:text="${category}">출판사 정보</title>
+</head>
+<body>
+	<div th:replace="fragments/header :: navbar" />
+	<div class="col-lg-10 col-lg-offset-1">
+		<table class='table table-striped'>
+			<tr><th>출판사사업자번호</th><th>이름</th><th>대표</th><th>주소</th><th>업태</th><th>업종</th><th>이메일</th></tr>
+			<tr th:each="item : ${list}">
+				<td th:text="${ item.pubNum }"></td>
+				<td th:text="${ item.pubName }"></td>
+				<td th:text="${ item.pubCeo }"></td>
+				<td th:text="${ item.pubAddress }"></td>
+				<td th:text="${ item.workStyle }"></td>
+				<td th:text="${ item.workType }"></td>
+				<td th:text="${ item.pubEmail }"></td>
+		</table>
+	</div>
+</body>
+</html>

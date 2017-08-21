@@ -1,0 +1,414 @@
+<head th:fragment="head(title, category)">
+	<meta charset="UTF-8">
+	<meta name="_csrf" th:content="${_csrf.token}"/>
+	<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+	<title th:replace="${title}"></title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="책구름" />
+	<meta name="description" content="구름처럼 자유로운 책세상">
+	<meta name="author" content="책구름">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	   
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="images/favicon.png">
+	
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="assets/plugins/magnific-popup/css/magnific-popup.css" />
+	<link rel="stylesheet" href="assets/plugins/swiper/css/swiper.css" />
+	<link rel="stylesheet" href="assets/plugins/youtube-player/css/YTPlayer.css" />
+	
+	<!-- CSS -->
+	<link rel="stylesheet" href="assets/css/animate.min.css" />
+	<link rel="stylesheet" href="assets/css/ei-icon.css" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="assets/css/custom.css" />
+	
+	<!-- Theme Color CSS -->
+	<link rel="stylesheet" href="assets/css/colors/blue.css" />
+
+
+    <!-- Jquery Plugins -->
+    <script type="text/javascript" src="assets/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/smoothscroll/smoothscroll.js"></script>
+    <script type="text/javascript" src="assets/plugins/easing/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="assets/plugins/wow/wow.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/counter-up/waypoints.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/counter-up/jquery.counterup.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/isotope/isotope.pkgd.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/magnific-popup/js/jquery.magnific-popup.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/youtube-player/js/jquery.mb.YTPlayer.js"></script>
+    <script type="text/javascript" src="assets/plugins/swiper/js/swiper.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/parallax-scroll-master/jquery.parallax-scroll.js"></script>
+    <script type="text/javascript" src="assets/plugins/validation/jquery.validate.min.js"></script>
+
+    
+    <!--[if lt IE 9]>
+    <script src="assets/plugins/ie/html5shiv.js"></script>
+    <script src="assets/plugins/ie/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Java Scripts -->
+    <!-- <script type="text/javascript" src="assets/js/google-map.js"></script>
+         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>-->
+    <script type="text/javascript" src="assets/js/email.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+		
+	<script type="text/javascript" src="../common.js"
+	       th:src="@{/common.js}"></script>
+</head>
+
+<!-- Header Start -->
+<header id="menu" class="header header-transparent header-sticky" th:fragment="header()">
+	<nav class="navbar">
+		<div class="container">
+			<div class="menu-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="top-bar"></span>
+					<span class="middle-bar"></span>
+					<span class="bottom-bar"></span>
+					<span class="sr-only">Toggle Dropdown</span>
+				</button>
+				<div class="nav-tools">
+					<ul class="nav navbar-nav">
+						<li class="nav-item dropdown">
+							<a class="dropdown-toggle" href="javascript:void(0);"><i class="ei ei-shopping-cart"></i> 2</a>
+							<ul class="cart-menu dropdown-menu">
+								<li class="cart-menu-item">
+									<a href="product-single.html" class="cart-menu-media">
+										<img class="img-responsive" src="assets/images/product/cart-item-1.jpg" alt="">
+									</a>
+									<div class="product-details">
+										<a href="product-single.html" class="product-name">Cotton T- Shirt</a>
+										<span class="price">$400.00</span>
+										<a class="remove" href="javascript:void(0);"><i class="ei ei-close"></i></a>
+									</div>
+								</li>
+								<li class="cart-menu-item">
+									<a href="product-single.html" class="cart-menu-media">
+										<img class="img-responsive" src="assets/images/product/cart-item-2.jpg" alt="">
+									</a>
+									<div class="product-details">
+										<a href="product-single.html" class="product-name">Party Dress</a>
+										<span class="price">$400.00</span>
+										<a class="remove" href="javascript:void(0);"><i class="ei ei-close"></i></a>
+									</div>
+								</li>
+								<li class="cart-menu-subtotal">
+									<span>Sub Total</span>
+									<span class="amount">$800</span>
+								</li>
+								<li class="cart-menu-bottom">
+									<a class="btn check-out" href="checkout.html"><i class="ei ei-shopping-cart-dash pdd-horizon-5"></i> View Cart</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item">
+							<a id="menu-search" href="javascript:void(0);"><i class="ei ei-search-alt"></i></a>
+						</li>
+					</ul>
+					<form action='#' id='search' method='get'>
+						<div class="search-input">
+							<div class="container">
+								<input class="search" placeholder='Search...' type='text'>
+								<button class="submit ei ei-search" type="submit" value="close"></button>
+							</div>
+						</div>
+						<button class="ei ei-close" id="close" type="reset"></button>
+					</form>
+				</div>
+				<div class="nav-logo">
+					<a class="logo" href="/">책구름</a>
+				</div>
+			</div>
+			<div class="collapse navbar-collapse nav-collapse">
+				<ul class="nav navbar-nav" >
+					<li class="nav-item dropdown">
+						<a class="dropdown-toggle" href="javascript:void(0);">Home <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="index-default.html">Default</a></li>
+							<li><a href="index-business.html">Business</a></li>
+							<li><a href="index-architect.html">Architect</a></li>
+							<li><a href="index-agency.html">Agency</a></li>
+							<li><a href="index-apps.html">Apps</a></li>
+							<li><a href="index-travel.html">Travel</a></li>
+							<li><a href="index-wedding.html">Wedding</a></li>
+							<li><a href="index-finance.html">Finance</a></li>
+							<li><a href="index-cafe.html">Cafe</a></li>
+							<li><a href="index-magazine.html">Magazine</a></li>
+							<li><a href="index-personal.html">Personal</a></li>
+							<li><a href="index-wine.html">Wine</a></li>
+							<li><a href="index-event.html">Event</a></li>
+							<li><a href="index-education.html">Education</a></li>
+							<li><a href="index-shop.html">Shop</a></li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="dropdown-toggle" href="javascript:void(0);">Features <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li class="sub-menu"><a href="javascript:void(0);">Header <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="header-default.html">Header Default</a></li>
+									<li><a href="header-fixed.html">Header Fixed</a></li>
+									<li><a href="header-transparent.html">Header Transparent</a></li>
+									<li><a href="header-transparent-fixed.html">Header Transparent Fixed</a></li>
+									<li><a href="header-fullwidth.html">Header Full Width</a></li>
+									<li><a href="header-logo-center.html">Header Logo Center</a></li>
+									<li><a href="header-logo-center-transparent.html">Header Logo Center Transparent</a></li>
+									<li><a href="header-side-left.html">Side Menu Left</a></li>
+									<li><a href="header-side-right.html">Side Menu Right</a></li>
+									<li><a href="header-fullscreen.html">Header Fullscreen</a></li>
+								</ul>
+							</li>
+							<li class="sub-menu"><a href="javascript:void(0);">Slider <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="revolution-slider.html">Revolution slider</a></li>
+									<li><a href="swiper.html">Swiper</a></li>
+								</ul>
+							</li>
+							<li class="sub-menu"><a href="javascript:void(0);">Footer <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="footer1.html">Footer 1</a></li>
+									<li><a href="footer2.html">Footer 2</a></li>
+									<li><a href="footer3.html">Footer 3</a></li>
+									<li><a href="footer4.html">Footer 4</a></li>
+									<li><a href="footer5.html">Footer 5</a></li>
+									<li><a href="footer6.html">Footer 6</a></li>
+									<li><a href="footer7.html">Footer 7</a></li>
+									<li><a href="footer-reveal.html">Footer Reveal</a></li>
+								</ul>
+							</li>
+							<li class="sub-menu"><a href="javascript:void(0);">Page Tittle <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li class="sub-menu"><a href="javascript:void(0);">Size <span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="page-tittle-sm.html">Page Tittle Small</a></li>
+											<li><a href="page-tittle-md.html">Page Tittle Medium</a></li>
+											<li><a href="page-tittle-lg.html">Page Tittle Large</a></li>
+											<li><a href="page-tittle-xlg.html">Page Tittle Extra Large</a></li>
+										</ul>
+									</li>
+									<li class="sub-menu"><a href="javascript:void(0);">Alignment <span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="page-tittle-left.html">Align Left</a></li>
+											<li><a href="page-tittle-right.html">Align Right</a></li>
+											<li><a href="page-tittle-center.html">Align Center</a></li>
+										</ul>
+									</li>
+									<li><a href="page-tittle-bg.html">Stactic Background</a></li>
+									<li><a href="page-tittle-parallax.html">Parallax</a></li>
+									<li><a href="page-tittle-kenburn.html">Kenburn</a></li>
+									<li><a href="page-tittle-video.html">Video</a></li>
+								</ul>
+							</li>
+							<li class="sub-menu"><a href="javascript:void(0);">Page loader <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="loader1.html">Page Loader 1</a></li>
+									<li><a href="loader2.html">Page Loader 2</a></li>
+									<li><a href="loader3.html">Page Loader 3</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown mega-menu">
+						<a class="dropdown-toggle" href="javascript:void(0);">Pages <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li class="mega-menu-content">
+								<div class="row">
+									<div class="col-md-3">
+										<ul>
+											<li><a href="about-1.html">About us 1</a></li>
+											<li><a href="about-2.html">About us 2</a></li>
+											<li><a href="about-3.html">About us 3</a></li>
+											<li><a href="about-me.html">About Me</a></li>
+											<li><a href="404.html">404 Page</a></li>
+										</ul>
+									</div>
+									<div class="col-md-3">
+										<ul>
+											<li><a href="services-1.html">Services 1</a></li>
+											<li><a href="services-2.html">Services 2</a></li>
+											<li><a href="services-3.html">Services 3</a></li>
+											<li><a href="contact-1.html">Contact Us 1</a></li>
+											<li><a href="contact-2.html">Contact Us 2</a></li>
+										</ul>
+									</div>
+									<div class="col-md-3">
+										<ul>
+											<li><a href="faq.html">FAQ</a></li>
+											<li><a href="login.html">Login</a></li>
+											<li><a href="login-2.html">Login 2</a></li>
+											<li><a href="register.html">Register</a></li>
+											<li><a href="account.html">My Account</a></li>
+										</ul>
+									</div>
+									<div class="col-md-3">
+										<ul>
+											<li><a href="cart.html">Cart</a></li>
+											<li><a href="categories.html">Categories</a></li>
+											<li><a href="checkout.html">Checkout</a></li>
+											<li><a href="product-single.html">Prodct Single</a></li>
+											<li><a href="coming-soon.html">Coming Soon</a></li>
+										</ul>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown mega-menu">
+						<a class="dropdown-toggle" href="javascript:void(0);">Elements <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li class="mega-menu-content">
+								<div class="row">
+									<div class="col-md-3">
+										<ul>
+											<li><a href="accordion.html">Accordion</a></li>
+											<li><a href="buttons.html">Buttons</a></li>
+											<li><a href="cta.html">Call To Action</a></li>
+											<li><a href="columns.html">Columns</a></li>
+											<li><a href="content-blocks.html">Content Blocks</a></li>
+
+										</ul>
+									</div>
+									<div class="col-md-3">
+										<ul>
+											<li><a href="counters.html">Counters</a></li>
+											<li><a href="features-box.html">Features Box</a></li>
+											<li><a href="forms.html">Forms</a></li>
+											<li><a href="icons.html">Icons</a></li>
+											<li><a href="media.html">Media</a></li>
+
+										</ul>
+									</div>
+									<div class="col-md-3">
+										<ul>
+											<li><a href="message-box.html">Message Box</a></li>
+											<li><a href="modal.html">Modal</a></li>
+											<li><a href="pricing-table.html">Pricing Table</a></li>
+											<li><a href="progress-bar.html">Prgress Bar</a></li>
+											<li><a href="rollover.html">Rollover</a></li>
+										</ul>
+									</div>
+									<div class="col-md-3">
+										<ul>
+											<li><a href="tabs.html">Tabs</a></li>
+											<li><a href="tables.html">Tables</a></li>
+											<li><a href="team.html">Team</a></li>
+											<li><a href="testimonial.html">Testimonial</a></li>
+											<li><a href="typography.html">Typography</a></li>
+										</ul>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown mega-menu">
+						<a class="dropdown-toggle" href="javascript:void(0);">Portfolio <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li class="mega-menu-content">
+								<div class="row">
+									<div class="col-md-4">
+										<ul>
+											<li class="menu-tittle">Grid</li>
+											<li><a href="portfolio-grid-2-col.html">2 Columns</a></li>
+											<li><a href="portfolio-grid-3-col.html">3 Columns</a></li>
+											<li><a href="portfolio-grid-4-col.html">4 Columns</a></li>
+											<li><a href="portfolio-grid-5-col.html">5 Columns</a></li>
+										</ul>
+									</div>
+									<div class="col-md-4">
+										<ul>
+											<li class="menu-tittle">Masonry</li>
+											<li><a href="portfolio-masonry-2-col.html">2 Columns</a></li>
+											<li><a href="portfolio-masonry-3-col.html">3 Columns</a></li>
+											<li><a href="portfolio-masonry-4-col.html">4 Columns</a></li>
+											<li><a href="portfolio-masonry-5-col.html">5 Columns</a></li>
+										</ul>
+									</div>
+									<div class="col-md-4">
+										<ul>
+											<li class="menu-tittle">Single</li>
+											<li><a href="portfolio-single-1.html">Layout 1</a></li>
+											<li><a href="portfolio-single-2.html">Layout 2</a></li>
+											<li><a href="portfolio-single-3.html">Layout 3</a></li>
+										</ul>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<!-- 로그인 -->
+					<li class="nav-item dropdown" sec:authorize="!isAuthenticated()">
+						<a class="dropdown-toggle" id="login-dropdown-toggle" href="javascript:void(0);">로그인 <span class="caret"></span></a>
+						<ul id="login-dropdown" class="dropdown-menu" style="padding:10px;">
+							<form th:action="@{/login}" method="post">
+								<li><input type="text" name="username" style="margin-bottom:8px;" class="form-control" id="username" placeholder="ID" th:value="${param.username}" ></li>
+								<li><input type="password" name="password" style="margin-bottom:8px;" class="form-control" id="password" placeholder="Password" th:value="${param.password}" ></li>
+								<li>
+									<label>
+										<input type="checkbox" id="remember_me" name="remember-me" style="margin-bottom:8px; margin-right:8px;"><span style="color:white;"> 로그인 상태 유지</span>
+									</label>
+								</li>
+								<li><button type="submit" class="btn btn-primary">로그인</button> <button id="join-btn" class="btn btn-primary">회원 가입</button></li>
+							</form>
+						</ul>
+					</li>
+					<!-- 관리자 용 -->
+					<li class="nav-item dropdown" sec:authorize="hasAuthority('ADMIN')">
+						<a class="dropdown-toggle" href="javascript:void(0);">관리자<span class="caret"></span></a>
+						<ul class="dropdown-menu" style="padding:10px;">
+							<li><a th:href="@{/pub/getlist}" style="margin-bottom:8px;">관리자 페이지</a></li>
+							<form th:action="@{/logout}" method="post">
+								<li><input class="btn btn-primary" type="submit" value="로그 아웃"></li>
+							</form>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<script type="text/javascript">
+		$('#login-dropdown-toggle').on('click', function() {
+			event.stopPropagation();
+			if($("#login-dropdown").hasClass("dropdown-menu-remain")) {
+				$("#login-dropdown").removeClass("dropdown-menu-remain");
+			}
+			else {
+				$("#login-dropdown").addClass("dropdown-menu-remain");
+			}
+		})
+		
+		$('html').on('click', function() {
+			if($("#login-dropdown").hasClass("dropdown-menu-remain")) {
+				$("#login-dropdown").removeClass("dropdown-menu-remain");
+			}
+		})
+
+		$(window).on('scroll', function() {
+			if($("#login-dropdown").hasClass("dropdown-menu-remain")) {
+				$("#login-dropdown").removeClass("dropdown-menu-remain");
+			}
+		})
+
+		$('#login-dropdown').on('click', function() {
+			event.stopPropagation();
+		})
+
+		$('.dropdown-toggle').hover(function(){
+			if($(this).attr('id') != 'login-dropdown-toggle') {
+				if($("#login-dropdown").hasClass("dropdown-menu-remain")) {
+					$("#login-dropdown").removeClass("dropdown-menu-remain");
+				}
+			}
+		})
+		
+		$('#join-btn').on('click', function() {
+			event.preventDefault();
+			window.location = "createUserForm";
+		})
+		
+	</script>
+</header>
+<!-- Header End -->

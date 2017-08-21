@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html th:with="category = '홈'">
+<head th:replace="fragments/header :: head(~{::title}, ${category})">
+<title th:text="${category}"></title>
+</head>
+<body>
+<div sec:authorize="isAuthenticated()">
+	<div th:replace="fragments/header :: navbar" />
+	<div class="col-lg-10 col-lg-offset-1 form-group">
+		<label>
+			안녕하세요 <span sec:authentication="name">ddf</span> 님!!
+			<span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span><br />
+		</label>
+		<form th:action="@{/logout}" method="post">
+	         <input type="submit" value="Logout" class="btn btn-default"/>
+		</form>
+	</div>
+</div>
+</body>
+</html>

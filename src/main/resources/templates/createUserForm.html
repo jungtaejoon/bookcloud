@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+<form th:action="@{/createUser}" method="post">
+	ID : <input type="text" name="username" th:value="${param.username}" /> <br />
+	PASSWORD : <input type="password" name="password" th:value="${param.password}" /> <br />
+	이름 : <input type="text" name="name" th:value="${param.name}" /> <br />
+	<input type="submit" />
+</form>
+
+</body>
+</html>

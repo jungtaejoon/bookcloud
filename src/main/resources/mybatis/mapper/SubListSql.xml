@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bookcloud.mapper.SubListMapper"> <!-- 표준아니다. -->
+	<select id="getBookSubList" resultType="hashmap"> <!--- result타입 교체 -->
+		SELECT ISBN, 제목 as title, 정가 as price FROM 서적
+	</select>
+	<select id="getBookStoreSubList" resultType="hashmap"> <!--- result타입 교체 -->
+		SELECT 서점사업자번호 as bsnum, 이름 as name, 공급율 as per FROM 서점
+	</select>
+	<select id="getSalesSubList" resultType="Sales"> <!--- result타입 교체 -->
+		select 이름 as name, 제목 as title, 매출일 as sDate, 판매부수 as amount, 
+			판매단가 as sPrice, 판매액 as totalPrice 
+			from 서적 inner join 매출
+			on 서적.ISBN = 매출.ISBN
+	</select>
+	<select id="getPeriodList" parameterType="hashmap" resultType="hashmap"> <!--- result타입 교체 -->
+		<![CDATA[
+		select 이름 as name, 제목 as title, 매출일 as sDate, 판매부수 as amount, 
+			판매단가 as sPrice, 판매액 as rPrice 
+			from 서적 inner join 매출
+			on 서적.ISBN = 매출.ISBN
+				where 매출일 >= #{fromDate} and 매출일 <= #{toDate}
+		]]>
+	</select>
+</mapper>    

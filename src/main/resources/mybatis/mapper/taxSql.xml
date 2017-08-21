@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bookcloud.mapper.TaxMapper">
+	<select id="getList" parameterType="string" resultType="ForTax"> <!--- result타입 교체 -->
+		select 출판사사업자번호 pubNum, 이름 pubName, pubCeo, pubAddress, workStyle, workType, 이메일 pubEmail, 서점사업자번호 bsnum, 서점명 name, 서점대표 ceo, 주소 address, 담당자이메일 email, 영청 yc, 판매액 taxPrice 
+			from 출판사 join (select 서점.`서점사업자번호`, 서점.`이름` 서점명, 서점.`대표자` 서점대표, 서점.`담당자이메일`, 서점.`주소`, 서점.`영청`, 매출2.`판매액`, 매출2.매출일 
+			from 서점 join (select 매출.`서점사업자번호`, 매출.이름, sum(매출.`판매액`) 판매액, date(매출.`매출일`) 매출일 from 매출 WHERE YEAR(매출.`매출일`) = #{param1} and MONTH(매출.`매출일`) = #{param2} 
+				group by 매출.`서점사업자번호`, MONTH(매출.`매출일`), YEAR(매출.`매출일`) ) 매출2 on 서점.`서점사업자번호` = 매출2.`서점사업자번호` and 서점.`이름` = 매출2.`이름` ) 택스 
+	</select>
+</mapper>    

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bookcloud.mapper.SalesMapper"> <!--- mapper 교체 -->
+	<insert id="insert" parameterType="Sales"> <!--- param타입 교체 -->
+		INSERT INTO 매출 (서점사업자번호, 이름, ISBN, 매출일, 판매부수, 판매단가, 판매액) VALUES (#{bsnum}, #{name}, #{ISBN}, #{sDate}, #{amount}, #{sPrice}, #{totalPrice})
+	</insert>
+</mapper>    

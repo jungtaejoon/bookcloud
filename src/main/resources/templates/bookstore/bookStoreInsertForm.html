@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html th:with="category = '신규 서점 등록'">
+<head th:replace="fragments/header :: head(~{::title}, ${category})">
+<title th:text="${category}"></title>
+</head>
+<body>
+	<div th:replace="fragments/header :: navbar">
+	</div>
+	<div class="col-lg-10 col-lg-offset-1">
+		<form class="form-horizontal" th:action="@{/bookstore/insert}" method="post">
+			<div class="form-group">
+				<label for="bsnum" class="col-sm-2 control-label">사업자번호</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="bsnum" name="bsnum" th:value="${ param.bsnum }" autofocus />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="name" class="col-sm-2 control-label">서점명</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="name" name="name" th:value="${ param.name }" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="ceo" class="col-sm-2 control-label">대표자</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="ceo" name="ceo" th:value="${ param.ceo }" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="email" class="col-sm-2 control-label">이메일</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="email" name="email" th:value="${ param.email }" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="address" class="col-sm-2 control-label">주소</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="address" name="address" th:value="${ param.address }" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="per" class="col-sm-2 control-label">공급율</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="per" name="per" th:value="${ param.per ?: 0.65 }" />
+				</div>
+			</div>
+			<div class="form-group form-inline">
+				<label class="col-sm-2 control-label">영수 청구 구분</label>
+				<div class="col-sm-3">
+					<div class="radio">
+						<label for="y"><input type="radio" name="yc" id="y" value="영수" />영수</label> 
+						<label for="c"><input type="radio" name="yc" id="c" value="청구" />청구</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-3">
+					<input type="submit" class="btn btn-default" value="등록"/>
+				</div>
+			</div>
+		</form>
+	</div>
+
+</body>
+</html>

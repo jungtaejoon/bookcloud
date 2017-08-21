@@ -1,0 +1,74 @@
+        <section class="section-3" th:fragment="testimonial()">
+            <div class="content-block-2">
+                <div class="image-container col-md-offset-6 col-md-6">
+                    <a href="http://bitsal.net/140205918053" target="_blank"><div id="swiperimg1" class="background-holder has-content" style="background-image: url(images/호주_그리고_나3.jpg)"></div></a>
+                    <a href="#"><div id="swiperimg2" class="background-holder has-content" style="background-image: url(images/pic01.jpg); display: none"></div></a>
+                    <a href="#"><div id="swiperimg3" class="background-holder has-content" style="background-image: url(images/pic02.jpg); display: none"></div></a>
+                </div><!-- /image-container -->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="text-content">
+                                <h2 class="mrg-btm-40">독자 후기</h2>
+                                <div class="testimonial-1">
+                                    <div class="swiper-single swiper-container">
+                                        <div class="swiper-wrapper mrg-btm-70">
+                                            <div id="swiper1" class="swiper-slide">
+	                                            <a href="http://bitsal.net/140205918053" target="_blank">
+	                                                <span class="client theme-color">빛살무늬 - 네이버 파워블로거</span>
+	                                                <p class="quote">국회의원 정책비서라는 직업에 적당히 만족도 하고, 7년 된 연인과의 관계도 원만하고
+													가족과도 아무런 문제가 없었던 그녀, 그러나 행복하지 않은 게 그 원인이었다.
+													남자친구과 결혼하여 계속 무언가를 축적하고 늘리는 일에 몰두하며 살게 될 것 같아 그녀는 답답했다.
+													정말로 하고 싶은 건 여행이었고, 결혼과 세계 일주라는 두 가지 선택지로 고민할 때
+													현명한 남자친구는 둘 다 해 보자고 제안을 했다.
+													그래서 둘은 결혼했고, 결혼식만 올린 뒤 호주로 떠났다.
+													2009년 워킹 홀리데이 비자로 호주에 입국했고
+													2010년 9월부터 2011년 1월까지 약 4개월 동안 본섬부터 태즈매니아까지 전국일주를 했다.</p>
+												</a>
+                                            </div><!-- /swiper-slide -->
+                                            <div id="swiper2" class="swiper-slide">
+	                                            <a href="#">
+	                                                <span class="client theme-color">CARTER DOE - COMPANY INC</span>
+	                                                <p class="quote">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived not only five centuries,</p>
+												</a>
+                                            </div><!-- /swiper-slide -->
+                                            <div id="swiper3" class="swiper-slide">
+	                                            <a href="#">
+	                                                <span class="client theme-color">CARTER DOE - COMPANY INC</span>
+	                                                <p class="quote">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived not only five centuries,</p>
+												</a>
+                                            </div><!-- /swiper-slide -->
+                                        </div><!-- /swiper-wrapper -->
+                                        <div class="swiper-navigation">
+                                            <div class="swiper-button-next"><i class="ei ei-right-chevron-boxed"></i></div>
+                                            <div class="swiper-button-prev"><i class="ei ei-left-chevron-boxed"></i></div>
+                                        </div><!-- /swiper-navigation -->
+                                    </div><!-- /swiper-container -->
+                                </div><!-- /testimonial-1 -->
+                            </div><!-- /content -->
+                        </div>
+                    </div>
+                </div>            
+            </div><!-- /content-block-2 -->
+            <script type="text/javascript">
+            	$(document).ready(function() {
+	           		$(".swiper-wrapper").on("webkitTransitionEnd transitionend", function(){
+		            	if($(".swiper-slide-active").attr("id") == "swiper1") {
+		            		$("#swiperimg1").css("display","");
+		            		$("#swiperimg2").css("display","none");
+		            		$("#swiperimg3").css("display","none");
+		            	}
+		            	else if($(".swiper-slide-active").attr("id") == "swiper2") {
+		            		$("#swiperimg1").css("display","none");
+		            		$("#swiperimg2").css("display","");
+		            		$("#swiperimg3").css("display","none");
+		            	}
+		            	else if($(".swiper-slide-active").attr("id") == "swiper3") {
+		            		$("#swiperimg1").css("display","none");
+		            		$("#swiperimg2").css("display","none");
+		            		$("#swiperimg3").css("display","");
+		            	}
+	           		})
+            	});
+            </script>
+        </section>

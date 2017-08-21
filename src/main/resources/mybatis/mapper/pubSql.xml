@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bookcloud.mapper.PubMapper">
+	<insert id="insert" parameterType="Book"> <!--- param타입 교체 -->
+		INSERT INTO 출판사 (출판사사업자번호, 이름, pubCeo, pubAddress, workStyle, workType, 이메일) VALUES 
+			(#{pubNum}, #{pubName}, #{pubCeo}, #{pubAddress}, #{workStyle}, #{workType}, #{pubEmail})
+	</insert>
+	<select id="getList" resultType="Pub"> <!--- result타입 교체 -->
+		SELECT 출판사사업자번호 as pubNum, 이름 as pubName, pubCeo, pubAddress, workStyle, workType, 이메일 as pubEmail FROM 출판사
+	</select>
+</mapper>    

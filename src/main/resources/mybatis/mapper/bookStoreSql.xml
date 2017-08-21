@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bookcloud.mapper.BookStoreMapper">
+	<insert id="insert" parameterType="BookStore">
+		INSERT INTO 서점 (서점사업자번호, 이름, 대표자, 담당자이메일, 주소, 공급율, 영청) VALUES (#{bsnum}, #{name}, #{ceo}, #{email}, #{address}, #{per}, #{yc})
+	</insert>
+	<select id="getList" resultType="BookStore">
+		SELECT 서점사업자번호 as bsnum, 이름 as name, 대표자 as ceo, 담당자이메일 as email, 주소 as address, 공급율 as per, 영청 as yc FROM 서점
+	</select>
+</mapper>    

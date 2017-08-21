@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bookcloud.mapper.BookMapper">
+	<insert id="insert" parameterType="Book"> <!--- param타입 교체 -->
+		INSERT INTO 서적 (ISBN, 제목, 저자, 정가) VALUES (#{ISBN}, #{title}, #{author}, #{price})
+	</insert>
+	<select id="getList" resultType="Book"> <!--- result타입 교체 -->
+		SELECT ISBN, 제목 as title, 저자 as author, 정가 as price FROM 서적
+	</select>
+</mapper>    
